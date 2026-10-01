@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TURE — Solve, Support, Secure | Service Catalog (Page 1)</title>
+    <style>
+        :root {
+            --brand-navy: #0f2b48;
+            --brand-cream: #fdfbf7;
+            --brand-border: #e2e8f0;
+            --brand-accent: #2563eb;
+            --text-main: #1e293b;
+            --text-muted: #64748b;
+            --card-bg: #ffffff;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            background-color: var(--brand-cream);
+            color: var(--text-main);
+            line-height: 1.6;
+            padding: 2rem 1rem;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        /* Header & Brand Section */
+        header {
+            background-color: var(--card-bg);
+            border: 1px solid var(--brand-border);
+            border-radius: 12px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.03);
+            text-align: center;
+        }
+
+        .brand-logo-img {
+            max-width: 220px;
+            height: auto;
+            margin-bottom: 1rem;
+            display: inline-block;
+        }
+
+        .header-meta {
+            font-size: 0.95rem;
+            color: var(--text-muted);
+            margin-bottom: 1.25rem;
+        }
+
+        .nav-links {
+            display: flex;
+            justify-content: center;
+            gap: 1.25rem;
+            font-size: 0.9rem;
+            border-top: 1px solid var(--brand-border);
+            padding-top: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .nav-links a {
+            color: var(--brand-navy);
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .nav-links a:hover {
+            color: var(--brand-accent);
+            text-decoration: underline;
+        }
+
+        /* Catalog Layout */
+        .catalog-bar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1.5rem;
+        }
+
+        .catalog-title {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: var(--brand-navy);
+        }
+
+        .page-indicator {
+            font-size: 0.875rem;
+            color: var(--text-muted);
+            font-weight: 500;
+        }
+
+        .service-list {
+            display: flex;
+            flex-direction: column;
+            gap: 1.25rem;
+            margin-bottom: 2rem;
+        }
+
+        .service-card {
+            background-color: var(--card-bg);
+            border: 1px solid var(--brand-border);
+            border-radius: 8px;
+            padding: 1.5rem;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.02);
+        }
+
+        .service-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 0.5rem;
+        }
+
+        .service-code {
+            font-family: monospace;
+            font-size: 0.8rem;
+            background-color: #e0f2fe;
+            color: #0369a1;
+            padding: 0.2rem 0.5rem;
+            border-radius: 4px;
+            font-weight: 700;
+        }
+
+        .service-title {
+            font-size: 1.15rem;
+            font-weight: 700;
+            color: var(--brand-navy);
+            margin-top: 0.25rem;
+        }
+
+        .service-desc {
+            color: var(--text-muted);
+            font-size: 0.925rem;
+            margin-bottom: 0.85rem;
+        }
+
+        .deliverables-title {
+            font-size: 0.8rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: var(--brand-navy);
+            margin-bottom: 0.4rem;
+        }
+
+        .deliverables-list {
+            list-style-type: disc;
+            padding-left: 1.25rem;
+            font-size: 0.9rem;
+            color: var(--text-main);
+        }
+
+        .deliverables-list li {
+            margin-bottom: 0.2rem;
+        }
+
+        /* Pagination */
+        .pagination {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 1.5rem 0;
+            margin-bottom: 2rem;
+        }
+
+        .pagination a, .pagination span {
+            padding: 0.5rem 0.9rem;
+            border: 1px solid var(--brand-border);
+            border-radius: 6px;
+            text-decoration: none;
+            color: var(--text-main);
+            font-size: 0.9rem;
+            background-color: var(--card-bg);
+        }
+
+        .pagination a:hover {
+            border-color: var(--brand-navy);
+            color: var(--brand-navy);
+        }
+
+        .pagination .active {
+            background-color: var(--brand-navy);
+            color: #ffffff;
+            border-color: var(--brand-navy);
+            font-weight: 700;
+        }
+
+        .pagination .disabled {
+            color: #cbd5e1;
+            cursor: not-allowed;
+            background-color: #f8fafc;
+        }
+
+        /* Engagement Options */
+        .engagement-section {
+            background-color: var(--card-bg);
+            border: 1px solid var(--brand-border);
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .engagement-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 1rem;
+            margin-top: 0.75rem;
+        }
+
+        .tier-box {
+            border: 1px solid var(--brand-border);
+            border-radius: 6px;
+            padding: 1rem;
+            background-color: var(--brand-cream);
+        }
+
+        .tier-name {
+            font-weight: 700;
+            font-size: 0.95rem;
+            color: var(--brand-navy);
+            margin-bottom: 0.25rem;
+        }
+
+        .tier-desc {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+        }
+
+        footer {
+            text-align: center;
+            font-size: 0.875rem;
+            color: var(--text-muted);
+            padding-top: 1.5rem;
+            border-top: 1px solid var(--brand-border);
+        }
+
+        @media (max-width: 600px) {
+            body { padding: 1rem 0.5rem; }
+            .catalog-bar { flex-direction: column; align-items: flex-start; gap: 0.25rem; }
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+
+    <!-- Header Section with TURE Brand -->
+    <header>
+        <img src="logo.png" alt="TURE - Solve, Support, Secure" class="brand-logo-img">
+        <p class="header-meta">Managed IT Support, Cloud Administration & Enterprise Infrastructure Solutions</p>
+        <nav class="nav-links">
+            <a href="index.html">Service Catalog (Page 1)</a>
+            <a href="page-2.html">Service Catalog (Page 2)</a>
+            <a href="https://wa.me/6285261216532?text=Hello%20TURE,%20I%20would%20like%20to%20inquire%20about%20your%20IT%20services." target="_blank">WhatsApp Chat</a>
+        </nav>
+    </header>
+
+    <!-- Catalog Page Header -->
+    <div class="catalog-bar">
+        <h2 class="catalog-title">Managed Support & Core Infrastructure</h2>
+        <span class="page-indicator">Showing 1–6 of 12 Services (Page 1)</span>
+    </div>
+
+    <!-- Service Catalog Items -->
+    <div class="service-list">
+
+        <div class="service-card">
+            <div class="service-header">
+                <div>
+                    <span class="service-code">SVC-01</span>
+                    <h3 class="service-title">24/7 Managed IT Helpdesk & Remote Support</h3>
+                </div>
+            </div>
+            <p class="service-desc">SLA-backed technical assistance ensuring rapid fault resolution, operating system optimization, and minimal user downtime.</p>
+            <div class="deliverables-title">Key Capabilities</div>
+            <ul class="deliverables-list">
+                <li>Unlimited Tier 1–3 remote desktop troubleshooting across Windows, macOS, and Linux</li>
+                <li>Ticket management, incident tracking, and root-cause diagnostic analysis</li>
+                <li>System performance tuning, patch management, and application updates</li>
+                <li>Network printer configuration, driver routing, and peripheral access controls</li>
+            </ul>
+        </div>
+
+        <div class="service-card">
+            <div class="service-header">
+                <div>
+                    <span class="service-code">SVC-02</span>
+                    <h3 class="service-title">Cloud Workspace & Email Infrastructure</h3>
+                </div>
+            </div>
+            <p class="service-desc">Centralized administration, security alignment, and structured data governance for enterprise cloud platforms.</p>
+            <div class="deliverables-title">Key Capabilities</div>
+            <ul class="deliverables-list">
+                <li>Cloud tenant management, domain mapping, and email security protocols (SPF, DKIM, DMARC)</li>
+                <li>Structured cloud file drive architecture, permission policies, and data classification</li>
+                <li>Cross-platform email migrations, mailbox cutovers, and zero-downtime data sync</li>
+                <li>Shared mailbox routing, alias configuration, and distribution group management</li>
+            </ul>
+        </div>
+
+        <div class="service-card">
+            <div class="service-header">
+                <div>
+                    <span class="service-code">SVC-03</span>
+                    <h3 class="service-title">Network Engineering & Managed Connectivity</h3>
+                </div>
+            </div>
+            <p class="service-desc">Enterprise network architecture engineered for maximum uptime, traffic isolation, and seamless wireless coverage.</p>
+            <div class="deliverables-title">Key Capabilities</div>
+            <ul class="deliverables-list">
+                <li>Multi-WAN gateway routing, bandwidth queuing, and automated ISP failover</li>
+                <li>VLAN traffic segmentation isolating corporate, guest, and server subnets</li>
+                <li>Enterprise Wireless Access Point (AP) deployment, RF tuning, and guest portals</li>
+                <li>Structured Cat6 network cabling design, switch trunking, and rack patch panel cleanup</li>
+            </ul>
+        </div>
+
+        <div class="service-card">
+            <div class="service-header">
+                <div>
+                    <span class="service-code">SVC-04</span>
+                    <h3 class="service-title">Identity & Access Management (IAM)</h3>
+                </div>
+            </div>
+            <p class="service-desc">Zero-trust access architecture enforcing strict identity verification across corporate applications and data drives.</p>
+            <div class="deliverables-title">Key Capabilities</div>
+            <ul class="deliverables-list">
+                <li>Single Sign-On (SSO) and Multi-Factor Authentication (MFA) deployment</li>
+                <li>Role-Based Access Control (RBAC) across cloud storage, apps, and internal networks</li>
+                <li>Centralized password policy enforcement and credential vaulting solutions</li>
+                <li>Access privilege audits to identify and purge stale permissions and security risks</li>
+            </ul>
+        </div>
+
+        <div class="service-card">
+            <div class="service-header">
+                <div>
+                    <span class="service-code">SVC-05</span>
+                    <h3 class="service-title">Endpoint Protection & Cyber Defense</h3>
+                </div>
+            </div>
+            <p class="service-desc">Multi-layered security protocols protecting corporate endpoints and network perimeters against active cyber threats.</p>
+            <div class="deliverables-title">Key Capabilities</div>
+            <ul class="deliverables-list">
+                <li>Centralized Endpoint Detection & Response (EDR) and real-time threat monitoring</li>
+                <li>Next-generation boundary firewall management and intrusion prevention rules</li>
+                <li>Full-disk hardware encryption enforcement protecting data on lost or stolen devices</li>
+                <li>Employee security awareness training and automated phishing simulation drills</li>
+            </ul>
+        </div>
+
+        <div class="service-card">
+            <div class="service-header">
+                <div>
+                    <span class="service-code">SVC-06</span>
+                    <h3 class="service-title">Automated Lifecycle Provisioning (Onboarding / Offboarding)</h3>
+                </div>
+            </div>
+            <p class="service-desc">Streamlined lifecycle workflows ensuring immediate day-one employee productivity and instant access revocation upon exit.</p>
+            <div class="deliverables-title">Key Capabilities</div>
+            <ul class="deliverables-list">
+                <li>Instant offboarding triggers: immediate session lockouts, password resets, and account revokes</li>
+                <li>Mailbox archiving, cloud drive transfers, and manager access handovers</li>
+                <li>SaaS license utilization reviews to eliminate unused accounts and optimize software spend</li>
+            </ul>
+        </div>
+
+    </div>
+
+    <!-- Pagination -->
+    <nav class="pagination">
+        <span class="disabled">&laquo; Prev</span>
+        <span class="active">1</span>
+        <a href="page-2.html">2</a>
+        <a href="page-2.html">Next &raquo;</a>
+    </nav>
+
+    <!-- Engagement Models -->
+    <section class="engagement-section">
+        <h3 class="deliverables-title">Service Engagement Models</h3>
+        <div class="engagement-grid">
+            <div class="tier-box">
+                <div class="tier-name">Project Scope</div>
+                <div class="tier-desc">Fixed milestone quote for initial network builds, cloud migrations, or system integrations.</div>
+            </div>
+            <div class="tier-box">
+                <div class="tier-name">Monthly Retainer</div>
+                <div class="tier-desc">Ongoing managed IT support, system monitoring, server maintenance, and daily backup audits.</div>
+            </div>
+            <div class="tier-box">
+                <div class="tier-name">On-Demand Support</div>
+                <div class="tier-desc">Hourly technical troubleshooting and emergency outage restoration for business systems.</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p><strong>TURE — Solve, Support, Secure</strong></p>
+        <p>Location: Bali, Indonesia | Phone: <a href="tel:+6285261216532">+62 852-6121-6532</a></p>
+        <p style="margin-top: 0.4rem;">Portfolio: <a href="https://andryberman.github.io/portfolio" target="_blank">andryberman.github.io/portfolio</a></p>
+    </footer>
+
+</div>
+
+</body>
+</html>
